@@ -1,3 +1,8 @@
+"""
+This module provide todo_progress function to display a specific
+user completed list
+"""
+
 import sys
 import requests
 
@@ -25,8 +30,9 @@ def todo_progress():
         return 'Error fetching data: {}'.format(user_response.status_code)
 
     completed_tasks = [todo["title"] for todo in todos if todo["completed"]]
-    print(
-        f"Employee{space}{user['name']}{space}is{space}done{space}with{space}tasks{space}({len(completed_tasks)}/{len(todos)})")
+    tesk_per = f"{len(completed_tasks)}/{len(todos)}"
+    user_text = f"Employee {user['name']} is done with tasks ({tesk_per})"
+    print(user_text.replace(" ", space))
 
     for task in completed_tasks:
         print('\t ', end='')
