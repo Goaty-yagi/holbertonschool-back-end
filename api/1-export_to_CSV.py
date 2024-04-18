@@ -3,9 +3,8 @@
 This module provide export_csv function to write
 csv formatted user task data.
 """
-
-import sys
 import requests
+import sys
 
 
 def export_csv():

@@ -3,10 +3,8 @@
 This module provide export_all_todo function to write
 all json formatted user task data.
 """
-
-import sys
-import requests
 import json
+import requests
 
 
 def export_all_todo():

@@ -3,10 +3,9 @@
 This module provide export_json function to write
 json formatted user task data.
 """
-
-import sys
-import requests
 import json
+import requests
+import sys
 
 
 def export_json():
@@ -33,7 +32,9 @@ def export_json():
     file_name = f"{id}.json"
     with open(file_name, 'w') as file:
         lines = [{
-            'task': todo["title"], 'completed': todo["completed"], 'username': user["username"]
+            'task': todo["title"],
+            'completed': todo["completed"],
+            'username': user["username"]
         } for todo in todos]
         data = {id: lines}
         json.dump(data, file)
