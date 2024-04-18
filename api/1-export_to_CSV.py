@@ -1,18 +1,17 @@
 #!/usr/bin/python3
 """
-This module provide todo_progress function to display a specific
-user completed list
+This module provide export_csv function to write
+csv formatted user task data.
 """
 
-import requests
 import sys
+import requests
 
 
-def todo_progress():
+def export_csv():
     if len(sys.argv) != 2:
         return
     id = sys.argv[1]
-    space = "\u2003"
     base_url = "https://jsonplaceholder.typicode.com"
     user_url = f"/users/{id}"
     user_response = requests.get(base_url + user_url)
@@ -30,15 +29,17 @@ def todo_progress():
     else:
         return 'Error fetching data: {}'.format(user_response.status_code)
 
-    completed_tasks = [todo["title"] for todo in todos if todo["completed"]]
-    task_per = f"{len(completed_tasks)}/{len(todos)}"
-    user_text = f"Employee {user['name']} is done with tasks ({task_per})"
-    print(user_text.replace(" ", space))
+    file_name = f"{id}.csv"
+    with open(file_name, 'w') as file:
+        for todo in todos:
+            id_str = f'"{id}"'
+            name_str = f'"{user["username"]}"'
+            completed_str = f'"{todo["completed"]}"'
+            title_str = f'"{todo["title"]}"'
 
-    for task in completed_tasks:
-        print('\t ', end='')
-        print(task.replace(" ", space))
+            line = f"{id_str},{name_str},{completed_str},{title_str}\n"
+            file.write(line)
 
 
 if __name__ == "__main__":
-    todo_progress()
+    export_csv()

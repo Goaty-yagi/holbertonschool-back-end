@@ -43,3 +43,30 @@ This project is based on the learning objectives - see the [LEARNING_OBJECTIVES]
  -- Second and N next lines display the title of completed tasks: TASK_TITLE (with 1 tabulation and space before the TASK_TITLE)
 
 
+### 1. Export to CSV
+
+**File:** [1-export_to_CSV.py](https://github.com/Goaty-yagi/holbertonschool-higher_level_programming/blob/main/python-inheritance/1-export_to_CSV.py)<br>
+**Description:** Using what you did in the task #0, extend your Python script to export data in the CSV format.<br>
+**Requirement:** <br>
+- Records all tasks that are owned by this employee
+- Format must be: "USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"
+- File name must be: USER_ID.csv
+
+
+### 2. Export to JSON
+
+**File:** [2-export_to_JSON.py](https://github.com/Goaty-yagi/holbertonschool-higher_level_programming/blob/main/python-inheritance/2-export_to_JSON.py)<br>
+**Description:** Using what you did in the task #0, extend your Python script to export data in the JSON format.<br>
+**Requirement:** <br>
+- Records all tasks that are owned by this employee
+- Format must be: { "USER_ID": [{"task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS, "username": "USERNAME"}, {"task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS, "username": "USERNAME"}, ... ]}
+- File name must be: USER_ID.json
+
+### Dictionary of list of dictionaries
+
+**File:** [3-dictionary_of_list_of_dictionaries.py](https://github.com/Goaty-yagi/holbertonschool-higher_level_programming/blob/main/python-inheritance/3-dictionary_of_list_of_dictionaries.py)<br>
+**Description:** Using what you did in the task #0, extend your Python script to export data in the JSON format.<br>
+**Requirement:** <br>
+- Records all tasks from all employees
+- Format must be: { "USER_ID": [ {"username": "USERNAME", "task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS}, {"username": "USERNAME", "task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS}, ... ], "USER_ID": [ {"username": "USERNAME", "task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS}, {"username": "USERNAME", "task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS}, ... ]}
+- File name must be: todo_all_employees.json

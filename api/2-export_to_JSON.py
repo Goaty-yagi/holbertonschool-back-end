@@ -1,18 +1,18 @@
 #!/usr/bin/python3
 """
-This module provide todo_progress function to display a specific
-user completed list
+This module provide export_json function to write
+json formatted user task data.
 """
 
-import requests
 import sys
+import requests
+import json
 
 
-def todo_progress():
+def export_json():
     if len(sys.argv) != 2:
         return
     id = sys.argv[1]
-    space = "\u2003"
     base_url = "https://jsonplaceholder.typicode.com"
     user_url = f"/users/{id}"
     user_response = requests.get(base_url + user_url)
@@ -30,15 +30,14 @@ def todo_progress():
     else:
         return 'Error fetching data: {}'.format(user_response.status_code)
 
-    completed_tasks = [todo["title"] for todo in todos if todo["completed"]]
-    task_per = f"{len(completed_tasks)}/{len(todos)}"
-    user_text = f"Employee {user['name']} is done with tasks ({task_per})"
-    print(user_text.replace(" ", space))
-
-    for task in completed_tasks:
-        print('\t ', end='')
-        print(task.replace(" ", space))
+    file_name = f"{id}.json"
+    with open(file_name, 'w') as file:
+        lines = [{
+            'task': todo["title"], 'completed': todo["completed"], 'username': user["username"]
+        } for todo in todos]
+        data = {id: lines}
+        json.dump(data, file)
 
 
 if __name__ == "__main__":
-    todo_progress()
+    export_json()
