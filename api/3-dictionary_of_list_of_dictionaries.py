@@ -40,13 +40,18 @@ def export_all_todo():
                 if user_response.status_code == 200:
                     user = user_response.json()
                 else:
-                    return 'Error fetching data: {}'.format(user_response.status_code)
+                    return 'Error fetching data: \
+                        {}'.format(user_response.status_code)
             each_list.append({
-                'username': user["username"], 'task': todo["title"], 'completed': todo["completed"]
+                'username': user["username"],
+                'task': todo["title"],
+                'completed': todo["completed"]
             })
 
         each_list.append({
-            'username': user["username"], 'task': todo["title"], 'completed': todo["completed"]
+            'username': user["username"],
+            'task': todo["title"],
+            'completed': todo["completed"]
         })
         store[init_id] = each_list
         json.dump(store, file)
