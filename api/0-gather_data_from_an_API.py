@@ -33,11 +33,10 @@ def todo_progress():
     completed_tasks = [todo["title"] for todo in todos if todo["completed"]]
     task_per = f"{len(completed_tasks)}/{len(todos)}"
     user_text = f"Employee {user['name']} is done with tasks({task_per}):"
-    print(user_text.replace(" ", space))
+    print(user_text)
 
     for task in completed_tasks:
-        print('\t ', end='')
-        print(task.replace(" ", space))
+        print('\t',task)
 
 
 if __name__ == "__main__":
