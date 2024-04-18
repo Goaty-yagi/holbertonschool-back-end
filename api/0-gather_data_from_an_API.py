@@ -36,7 +36,7 @@ def todo_progress():
     print(user_text)
 
     for task in completed_tasks:
-        print('\t',task)
+        print('\t', task)
 
 
 if __name__ == "__main__":
